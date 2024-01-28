@@ -13,16 +13,16 @@ namespace Addressbook
             public string number;
             public string email;
 
-            public Contact(string FirstName, string LastName, string address, string city, string ZipCode, string number, string email)
-            {
-                this.FirstName = FirstName;
-                this.LastName = LastName;
-                this.address = address;
-                this.city = city;
-                this.ZipCode = ZipCode;
-                this.number = number;
-                this.email = email;
-            }
+            //public Contact(string FirstName, string LastName, string address, string city, string ZipCode, string number, string email)
+            //{
+            //    this.FirstName = FirstName;
+            //    this.LastName = LastName;
+            //    this.address = address;
+            //    this.city = city;
+            //    this.ZipCode = ZipCode;
+            //    this.number = number;
+            //    this.email = email;
+            //}
         }
         class Address_Book
         {
@@ -84,15 +84,73 @@ namespace Addressbook
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book");
-            Contact obj1 = new Contact("Prince", "Bhagat", "Simri Bakhtiyarpur", "Saharsa", "852127", "8769944633", "hrprem16@gmail.com");
 
+            //List<Contact> addressbook = new List<Contact>();
             Address_Book book1 = new Address_Book();
-            book1.addContact(obj1);
+
+            bool a = true;
+            while (a)
+            {
+                Console.WriteLine("Enter the first name: ");
+                string fname = Console.ReadLine();
+                Console.WriteLine("Enter the last name: ");
+                string lname = Console.ReadLine();
+                Console.WriteLine("Enter the address: ");
+                string add = Console.ReadLine();
+                Console.WriteLine("Enter the city: ");
+                string city = Console.ReadLine();
+                Console.WriteLine("Enter the state: ");
+                string state = Console.ReadLine();
+                Console.WriteLine("Enter the Phone: ");
+                string zipcode = Console.ReadLine();
+                Console.WriteLine("Enter the Zipcode: ");
+                string phone = Console.ReadLine();
+                Console.WriteLine("Enter the email: ");
+                string email = Console.ReadLine();
+
+                Contact newcontact = new Contact
+                {
+                    FirstName = fname,
+                    LastName = lname,
+                    address = add,
+                    city = city,
+                    ZipCode = zipcode,
+                    number = phone,
+                    email = email
+                };
+
+                book1.addContact(newcontact);
+
+                Console.WriteLine("Do You want to insert more contact ? [Yes/no]");
+                string ans = Console.ReadLine();
+                if (ans == "yes")
+                {
+                    a = true;
+                }
+                else
+                {
+                    a = false;
+                }
+
+            }
             book1.display();
-            Contact obj2=new Contact("Prince", "Kumar", "Sonbarsa", "Saharsa","603023", "8677448899", "prine123@gmail.com");
+
+            //for edit existing contact
+            Contact editcontact = new Contact
+            {
+                FirstName="Prince",
+                LastName="Bhagat",
+                address="Simri Bakhtiyarpur",
+                city="Saharsa",
+                ZipCode="852127",
+                number="99999999999",
+                email="abc@gmail.com"
+            };
+           
+               
             Console.WriteLine("Enter the first name of the contact to edit: ");
             string firstname = Console.ReadLine();
-            book1.editContact(firstname, obj2);
+            book1.editContact(firstname,editcontact);
             book1.display();
             Console.WriteLine("Enter the first name of the contact to delete: ");
             string Firstname = Console.ReadLine();
