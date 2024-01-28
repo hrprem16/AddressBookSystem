@@ -65,6 +65,19 @@ namespace Addressbook
 
                 }
             }
+            public void deleteContact(string FirstName)
+            {
+                Contact Existing = contacts.Find(c => c.FirstName.Equals(FirstName));
+                if (Existing == null)
+                {
+                    Console.WriteLine("Contact not found");
+                }
+                else
+                {
+                    contacts.Remove(Existing);
+                    Console.WriteLine("Contact deleted Successfully");
+                }
+;            }
 
 
         }
@@ -81,6 +94,9 @@ namespace Addressbook
             string firstname = Console.ReadLine();
             book1.editContact(firstname, obj2);
             book1.display();
+            Console.WriteLine("Enter the first name of the contact to delete: ");
+            string Firstname = Console.ReadLine();
+            book1.deleteContact(Firstname);
 
         }
     }
