@@ -1,18 +1,18 @@
-﻿using System;
+using System;
 namespace Addressbook
 {
     class program
     {
         class Contact
         {
-            public string FirstName;
-            public string LastName;
-            public string address;
-            public string city;
-            public int ZipCode;
-            public string number;
-            public string email;
-           public Contact (string FirstName, string LastName, string address, string city, int ZipCode, string number, string email)
+            string FirstName;
+            string LastName;
+            string address;
+            string city;
+            int ZipCode;
+            string number;
+            string email;
+           Contact (string FirstName, string LastName, string address, string city, int ZipCode, string number, string email)
             {
                 this.FirstName = FirstName;
                 this.address = LastName;
